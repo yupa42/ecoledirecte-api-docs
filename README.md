@@ -748,3 +748,160 @@ Succès
    }
 }
 ```
+### devoir
+
+Endpoint qui sert a afficher les devoir
+
+Request
+```
+    Endpoint : https://api.ecoledirecte.com/v3/Eleves/{id}/cahierdetexte(/{date}).awp?verbe=get&v=4.6.0
+    Type of request : POST
+    Body : 
+        None
+    Headers : 
+        X-Token: <token>
+```
+
+Responses :
+
+Succès (sans /{date})
+```js
+{
+   "code":200,
+   "token":"Super secret token here",
+   "host":"HTTP82",
+   "data":{
+      "2022-03-29":[
+         {
+            "matiere":"FRANCAIS",
+            "codeMatiere":"FRANC",
+            "aFaire":true,
+            "idDevoir":14421,
+            "documentsAFaire":false,
+            "donneLe":"2022-03-22",
+            "effectue":true,
+            "interrogation":true,
+            "rendreEnLigne":false
+         }
+      ],
+      "2022-04-11":[
+         {
+            "matiere":"FRANCAIS",
+            "codeMatiere":"FRANC",
+            "aFaire":true,
+            "idDevoir":14817,
+            "documentsAFaire":false,
+            "donneLe":"2022-02-28",
+            "effectue":false,
+            "interrogation":true,
+            "rendreEnLigne":false
+         }
+      ]
+   }
+}
+```
+Succès (avec /{date})
+
+```js
+{
+   "code":200,
+   "token":"Super secret token here",
+   "host":"HTTP184",
+   "data":{
+      "date":"2022-03-29",
+      "matieres":[
+         {
+            "entityCode":"2_ESP2_1",
+            "entityLibelle":"2_ESP2_1",
+            "entityType":"G",
+            "matiere":"ESPAGNOL LV2",
+            "codeMatiere":"ESP2",
+            "nomProf":" Par Mme LAVIGNE I.",
+            "id":15000,
+            "interrogation":false,
+            "blogActif":true,
+            "nbJourMaxRenduDevoir":0,
+            "contenuDeSeance":{
+               "idDevoir":15000,
+               "contenu":"ZW5jb2RlciBlbiBCYXNlNjQ=",//encoder en base64 (https://www.base64decode.org/)
+               "documents":[
+                  
+               ],
+               "commentaires":[
+                  
+               ],
+               "elementsProg":[
+                  
+               ],
+               "liensManuel":[
+                  
+               ]
+            }
+         },
+         {
+            "entityCode":"2DE3",
+            "entityLibelle":"Seconde 3",
+            "entityType":"C",
+            "matiere":"FRANCAIS",
+            "codeMatiere":"FRANC",
+            "nomProf":" Par Mme LAC B.",
+            "id":14421,
+            "interrogation":true,
+            "blogActif":true,
+            "nbJourMaxRenduDevoir":0,
+            "aFaire":{
+               "idDevoir":14421,
+               "contenu":"ZW5jb2RlciBlbiBCYXNlNjQ=",//encoder en base64 (https://www.base64decode.org/)
+               "rendreEnLigne":false,
+               "donneLe":"2022-03-22",
+               "effectue":true,
+               "ressource":"",
+               "ressourceDocuments":[
+                  
+               ],
+               "documents":[
+                  
+               ],
+               "commentaires":[
+                  
+               ],
+               "elementsProg":[
+                  
+               ],
+               "liensManuel":[
+                  
+               ],
+               "documentsRendus":[
+                  
+               ],
+               "contenuDeSeance":{
+                  "contenu":"ZW5jb2RlciBlbiBCYXNlNjQ=",//encoder en base64 (https://www.base64decode.org/)
+                  "documents":[
+                     
+                  ],
+                  "commentaires":[
+                     
+                  ]
+               }
+            },
+            "contenuDeSeance":{
+               "idDevoir":14421,
+               "contenu":"",
+               "documents":[
+                  
+               ],
+               "commentaires":[
+                  
+               ],
+               "elementsProg":[
+                  
+               ],
+               "liensManuel":[
+                  
+               ]
+            }
+         }
+      ]
+   }
+}
+```
